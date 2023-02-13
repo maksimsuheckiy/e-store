@@ -12,7 +12,7 @@ import AmericanExpressIcon from '../../assets/images/payment/american-express.sv
 const Footer = () => {
     return (
         <footer className={styles['footer']}>
-            <div className={rootStyles['main-wrapper']}>
+            <div className={rootStyles['wrapper']}>
                 <div className={styles['footer__row']}>
 
                 </div>
