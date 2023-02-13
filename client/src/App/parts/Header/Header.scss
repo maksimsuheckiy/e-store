@@ -1,0 +1,27 @@
+.header {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #CACDD8;
+    &__logo {
+        width: 85px;
+        height: 69px;
+        fill: #0156FF;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.user-panel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    &__icon {
+        width: 25px;
+        height: 25px;
+        fill: #000;
+    }
+}

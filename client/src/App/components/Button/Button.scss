@@ -1,0 +1,20 @@
+.button {
+    background-color: #25262B;
+    border-radius: 4px;
+    padding: 8.5px 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #FFF;
+    cursor: pointer;
+    border: 0;
+    &--primary {
+        border: 1px solid #FFFFFF;
+        border-radius: 8px;
+        background-color: #000;
+    }
+
+    &--secondary {
+        background-color: #000;
+    }
+}

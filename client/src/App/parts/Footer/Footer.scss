@@ -1,0 +1,40 @@
+.footer {
+    background-color: #020203;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    &__copyright {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.325;
+        color: #FFF;
+        opacity: 0.6;
+    }
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &__icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.payment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &__icon {
+        width: 34px;
+        height: 22px;
+    }
+}
