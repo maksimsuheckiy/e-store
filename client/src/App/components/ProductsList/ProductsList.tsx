@@ -5,7 +5,6 @@ import {getProducts} from "../../store/reducers/productsSlice";
 import {SelectSortedProducts} from "../../store/selectors/SelectSortedProducts";
 import {useAppDispatch, useAppSelector} from "../../store/hooks/redux";
 import Product from "../ProductItem/Product";
-// import {RootState} from "../../store/types";
 
 const ProductsList = () => {
     const dispatch = useAppDispatch();
