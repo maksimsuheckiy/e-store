@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {InitialState} from "../../models/InitialDataTypes";
 
 export const getProducts = createAsyncThunk(
@@ -11,7 +11,8 @@ export const getProducts = createAsyncThunk(
 
 const initialState: InitialState = {
     products: [],
-    sortingParam: ''
+    cart: [],
+    sortingParam: '',
 }
 
 const productsSlice = createSlice({
@@ -19,7 +20,16 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         setSortParam(state, action: PayloadAction<string>) {
-            state.sortingParam = action.payload
+            state.sortingParam = action.payload;
+        },
+        addToCart(state, action: PayloadAction<any>) {
+            const productInCart = state.cart.find((product) => product.id === action.payload.id);
+            if (!productInCart) {
+                state.cart.push({...action.payload, inCart: true});
+            }
+        },
+        removeFromCart(state, action: PayloadAction<number | undefined>) {
+            state.cart = state.cart.filter(item => item.id !== action.payload);
         }
     },
     extraReducers: builder => {
@@ -32,5 +42,5 @@ const productsSlice = createSlice({
     }
 })
 
-export const {setSortParam} = productsSlice.actions;
+export const {setSortParam, addToCart, removeFromCart} = productsSlice.actions;
 export default productsSlice.reducer;

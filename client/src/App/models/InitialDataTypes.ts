@@ -12,7 +12,12 @@ export type ProductItem = {
     images: string[];
 }
 
+export type CartProductItem = ProductItem & {
+    inCart?: boolean;
+}
+
 export interface InitialState {
     products: Array<ProductItem>;
+    cart: Array<CartProductItem>;
     sortingParam: string;
 }

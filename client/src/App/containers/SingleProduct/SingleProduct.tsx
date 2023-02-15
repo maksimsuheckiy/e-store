@@ -1,15 +1,21 @@
 import React from "react";
 import {useParams} from "react-router-dom";
-import {useAppSelector} from "../../store/hooks/redux";
+import {useAppDispatch, useAppSelector} from "../../store/hooks/redux";
 import styles from './SingleProduct.scss';
 import rootStyles from '../../assets/styles/main.scss';
 import {RootState} from "../../store/types";
 import Button from "../../components/Button/Button";
+import {addToCart} from "../../store/reducers/productsSlice";
 
 const SingleProduct = () => {
     const {id} = useParams();
+    const dispatch = useAppDispatch();
     const products = useAppSelector((state: RootState) => state.data.products);
     const currentProduct = products.find(product => product.id === Number(id));
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(currentProduct));
+    }
 
     return (
         <div className={styles['product']}>
@@ -30,7 +36,7 @@ const SingleProduct = () => {
                         <p className={styles['product-info__brand']}>Brand - {currentProduct?.brand}</p>
                         <p className={styles['product-info__desc']}>Description: {currentProduct?.description}</p>
                         <p className={styles['product-info__price']}>Price: ${currentProduct?.price}</p>
-                        <Button type="button" text="Add to Cart" isPrimary={true} />
+                        <Button type="button" text="Add to Cart" isPrimary={true} onClick={handleAddToCart}/>
                     </div>
                 </div>
             </div>

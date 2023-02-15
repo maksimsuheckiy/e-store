@@ -9,12 +9,9 @@ import Product from "../ProductItem/Product";
 const ProductsList = () => {
     const dispatch = useAppDispatch();
     const sortedProducts = useAppSelector(SelectSortedProducts);
-    const storage = localStorage.getItem('persist:root');
 
     useEffect(() => {
-        if (storage === null) {
-            dispatch(getProducts());
-        }
+        dispatch(getProducts());
     }, []);
 
     const productsList = sortedProducts.map(product => {
