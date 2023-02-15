@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 import {InitialState} from "../../models/InitialDataTypes";
 
 export const getProducts = createAsyncThunk(
@@ -10,13 +10,18 @@ export const getProducts = createAsyncThunk(
 );
 
 const initialState: InitialState = {
-    products: []
+    products: [],
+    sortingParam: ''
 }
 
 const productsSlice = createSlice({
     name: 'products',
     initialState,
-    reducers: {},
+    reducers: {
+        setSortParam(state, action: PayloadAction<string>) {
+            state.sortingParam = action.payload
+        }
+    },
     extraReducers: builder => {
         builder
             .addCase(getProducts.fulfilled,
@@ -27,4 +32,5 @@ const productsSlice = createSlice({
     }
 })
 
-export default productsSlice.reducer
+export const {setSortParam} = productsSlice.actions;
+export default productsSlice.reducer;

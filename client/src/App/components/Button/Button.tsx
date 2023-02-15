@@ -5,15 +5,20 @@ type Button = {
     type: 'submit' | 'reset' | 'button';
     text: string;
     isPrimary: boolean;
+    smaller?: boolean;
     onClick?: () => void;
 }
 
 const Button = (props: Button) => {
-    const {type, text, isPrimary, onClick} = props;
+    const {type, text, isPrimary, smaller, onClick} = props;
 
     return (
         <button type={type}
-                className={`${styles.button} ${isPrimary ? `${styles['button--primary']}` : `${styles['button--secondary']}`}`}
+                className={`
+                    ${styles.button} 
+                    ${isPrimary ? `${styles['button--primary']}` : `${styles['button--secondary']}`}
+                    ${smaller && `${styles['button--smaller']}`}
+                `}
                 onClick={onClick}>
             {text}
         </button>

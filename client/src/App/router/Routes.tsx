@@ -5,6 +5,7 @@ import Auth from "../containers/Auth/Auth";
 import Register from "../containers/Register/Register";
 import UserProfile from "../containers/UserProfile/Profile";
 import Cart from "../containers/Cart/Cart";
+import SingleProduct from "../containers/SingleProduct/SingleProduct";
 
 export const RoutesConfig = [
     {
@@ -26,6 +27,10 @@ export const RoutesConfig = [
     {
         path: '/cart',
         component: () => <Cart/>
+    },
+    {
+        path: '/product/:id',
+        component: () => <SingleProduct/>
     },
     {
         path: '*',

@@ -1,6 +1,8 @@
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15%, 18.5%));
+    grid-template-columns: repeat(auto-fill, minmax(15%, 23%));
     grid-column-gap: 25px;
     grid-row-gap: 50px;
+    justify-content: space-between;
+    flex-shrink: 0;
 }

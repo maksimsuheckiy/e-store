@@ -1,5 +1,12 @@
 .main {
     margin-bottom: 58px;
+    flex: 1 0 auto;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .wrapper {
@@ -10,4 +17,29 @@
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
+}
+
+.checkmark {
+    background-color: #78A962;
+    border-radius: 50px;
+    width: 19px;
+    height: 19px;
+    transform: rotate(45deg);
+    &__stem {
+        position: absolute;
+        width: 2px;
+        height: 9px;
+        background-color: #FFF;
+        left: 10px;
+        top: 4px;
+    }
+
+    &__kick {
+        position: absolute;
+        width: 6px;
+        height: 2px;
+        background-color: #FFF;
+        left: 6px;
+        top: 12px;
+    }
 }

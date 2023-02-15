@@ -14,4 +14,5 @@ export type ProductItem = {
 
 export interface InitialState {
     products: Array<ProductItem>;
+    sortingParam: string;
 }
