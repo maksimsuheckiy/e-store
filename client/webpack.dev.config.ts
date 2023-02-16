@@ -1,6 +1,7 @@
 import path from "path";
-import { Configuration as WebpackConfiguration, HotModuleReplacementPlugin } from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import Dotenv from "dotenv-webpack";
+import {Configuration as WebpackConfiguration, HotModuleReplacementPlugin} from "webpack";
+import {Configuration as WebpackDevServerConfiguration} from 'webpack-dev-server';
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
@@ -21,7 +22,7 @@ const config: Configuration = {
                 test: /\.(ts|js)x?$/i,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader",
+                    loader: "babel-Loader",
                     options: {
                         presets: [
                             "@babel/preset-env",
@@ -33,17 +34,17 @@ const config: Configuration = {
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: ["style-Loader", "css-Loader"],
             },
             {
                 test: /\.s(a|c)ss$/,
                 use: [
-                    'style-loader',
+                    'style-Loader',
                     {
-                        loader: 'css-loader',
-                        options: { modules: true }
+                        loader: 'css-Loader',
+                        options: {modules: true}
                     },
-                    'sass-loader'
+                    'sass-Loader'
                 ]
             },
             {
@@ -71,6 +72,9 @@ const config: Configuration = {
         }),
         new ESLintPlugin({
             extensions: ["js", "jsx", "ts", "tsx"],
+        }),
+        new Dotenv({
+            systemvars: true,
         }),
     ],
     devtool: "inline-source-map",

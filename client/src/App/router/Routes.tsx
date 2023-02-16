@@ -1,11 +1,10 @@
 import React from "react";
 import Home from "../containers/Home/Home";
 import NotFound from "../containers/NotFound/NotFound";
-import Auth from "../containers/Auth/Auth";
-import Register from "../containers/Register/Register";
 import UserProfile from "../containers/UserProfile/Profile";
 import Cart from "../containers/Cart/Cart";
 import SingleProduct from "../containers/SingleProduct/SingleProduct";
+import AuthenticationGuard from "./Authentication-guard";
 
 export const RoutesConfig = [
     {
@@ -13,16 +12,8 @@ export const RoutesConfig = [
         component: () => <Home/>
     },
     {
-        path: '/login',
-        component: () => <Auth/>
-    },
-    {
-        path: '/registration',
-        component: () => <Register/>
-    },
-    {
         path: '/profile',
-        component: () => <UserProfile/>
+        component: () => <AuthenticationGuard component={UserProfile} />
     },
     {
         path: '/cart',

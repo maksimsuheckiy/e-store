@@ -1,20 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../store/hooks/redux";
 import styles from './SingleProduct.scss';
 import rootStyles from '../../assets/styles/main.scss';
 import {RootState} from "../../store/types";
 import Button from "../../components/Button/Button";
+import Alert from "../../components/Alert/Alert";
 import {addToCart} from "../../store/reducers/productsSlice";
+import {useAuth0} from "@auth0/auth0-react";
 
 const SingleProduct = () => {
     const {id} = useParams();
+    const [error, setError] = useState(false);
     const dispatch = useAppDispatch();
+    const {isAuthenticated} = useAuth0();
     const products = useAppSelector((state: RootState) => state.data.products);
-    const currentProduct = products.find(product => product.id === Number(id));
+    const currentProduct = products.find(product => product.id === Number(id))!;
 
     const handleAddToCart = () => {
-        dispatch(addToCart(currentProduct));
+        if (isAuthenticated) {
+            dispatch(addToCart(currentProduct));
+        } else {
+            setError(true);
+        }
     }
 
     return (
@@ -37,6 +45,7 @@ const SingleProduct = () => {
                         <p className={styles['product-info__desc']}>Description: {currentProduct?.description}</p>
                         <p className={styles['product-info__price']}>Price: ${currentProduct?.price}</p>
                         <Button type="button" text="Add to Cart" isPrimary={true} onClick={handleAddToCart}/>
+                        {error && <Alert type="error" message="To add an item to your cart, you need to sign in"/>}
                     </div>
                 </div>
             </div>

@@ -1,13 +1,18 @@
 .sorting {
-    width: 100%;
-    max-width: max-content;
-    padding: 16px 28px;
-    background-color: #F5F7FF;
-    display: flex;
-    align-items: center;
     margin-bottom: 70px;
+    &__inner {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: max-content;
+        padding: 8.5px 28px;
+        background-color: #F5F7FF;
+        margin-bottom: 20px;
+        border-radius: 50px;
+    }
+
     &__heading {
-        padding-right: 40px;
+        padding-right: 20px;
     }
 
     &__title {
@@ -25,7 +30,6 @@
     justify-content: space-between;
     gap: 25px;
     list-style: none;
-    padding-right: 30px;
     &__item {
         font-family: 'Poppins', sans-serif;
         font-weight: 400;

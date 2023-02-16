@@ -5,25 +5,39 @@ import Logo from '../../assets/images/logo.svg';
 import CartIcon from '../../assets/images/header/cart.svg';
 import ProfileIcon from '../../assets/images/header/profile.svg';
 import {Link} from "react-router-dom";
+import Button from "../../components/Button/Button";
+import {useAuth0} from "@auth0/auth0-react";
 
 const Header = () => {
+    const {loginWithRedirect, logout, isAuthenticated} = useAuth0();
+
+    const handleAuth = (type: string) => {
+        if (type === 'login') {
+            return loginWithRedirect()
+        } else {
+            return logout()
+        }
+    }
+
     return (
         <header className={styles['header']}>
             <div className={`${styles['header__inner']} ${rootStyles['wrapper']}`}>
                 <Link to="/">
                     <Logo className={styles['header__logo']}/>
                 </Link>
-                <nav className={styles['nav']}>
-                    <Link to="/registration" className={styles['nav__link']}>Registration</Link>
-                    <Link to="/login" className={styles['nav__link']}>Authorization</Link>
-                </nav>
                 <div className={styles['user-panel']}>
+                    {!isAuthenticated ?
+                        <Button type="button" text="Sign in" isPrimary smaller onClick={() => handleAuth('login')}/> :
+                        <Button type="button" text="Sign out" isPrimary smaller onClick={() => handleAuth('logout')}/>
+                    }
                     <Link to="/cart">
                         <CartIcon className={styles['user-panel__icon']}/>
                     </Link>
-                    <Link to="/profile">
-                        <ProfileIcon className={styles['user-panel__icon']}/>
-                    </Link>
+                    {isAuthenticated && (
+                        <Link to="/profile">
+                            <ProfileIcon className={styles['user-panel__icon']}/>
+                        </Link>
+                    )}
                 </div>
             </div>
         </header>

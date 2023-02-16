@@ -21,7 +21,7 @@ const config: Configuration = {
                 test: /\.(ts|js)x?$/i,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader",
+                    loader: "babel-Loader",
                     options: {
                         presets: [
                             "@babel/preset-env",
@@ -33,17 +33,17 @@ const config: Configuration = {
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: ["style-Loader", "css-Loader"],
             },
             {
                 test: /\.s(a|c)ss$/,
                 use: [
-                    'style-loader',
+                    'style-Loader',
                     {
-                        loader: 'css-loader',
+                        loader: 'css-Loader',
                         options: {modules: true}
                     },
-                    'sass-loader'
+                    'sass-Loader'
                 ]
             },
             {

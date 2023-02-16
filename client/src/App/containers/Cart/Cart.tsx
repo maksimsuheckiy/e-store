@@ -9,7 +9,7 @@ const Cart = () => {
     const dispatch = useAppDispatch();
     const products = useAppSelector((state: RootState) => state.data.cart);
 
-    const handleRemoveProduct = (id: number | undefined) => {
+    const handleRemoveProduct = (id: number) => {
         dispatch(removeFromCart(id))
     }
 
@@ -32,7 +32,7 @@ const Cart = () => {
                 </p>
             </td>
             <td className={`${styles['cart-list__cell']} ${styles['cart-list__cell-btn']}`}>
-                <Remove className={styles['cart-list__remove-icon']} onClick={() => handleRemoveProduct(product.id)}/>
+                <Remove className={styles['cart-list__remove-icon']} onClick={() => handleRemoveProduct(product.id!)}/>
             </td>
         </tr>
     ))

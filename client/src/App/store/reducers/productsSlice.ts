@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {InitialState} from "../../models/InitialDataTypes";
+import {InitialState, ProductItem} from "../../models/InitialDataTypes";
 
 export const getProducts = createAsyncThunk(
     'products/data',
@@ -22,13 +22,13 @@ const productsSlice = createSlice({
         setSortParam(state, action: PayloadAction<string>) {
             state.sortingParam = action.payload;
         },
-        addToCart(state, action: PayloadAction<any>) {
+        addToCart(state, action: PayloadAction<ProductItem>) {
             const productInCart = state.cart.find((product) => product.id === action.payload.id);
             if (!productInCart) {
                 state.cart.push({...action.payload, inCart: true});
             }
         },
-        removeFromCart(state, action: PayloadAction<number | undefined>) {
+        removeFromCart(state, action: PayloadAction<number>) {
             state.cart = state.cart.filter(item => item.id !== action.payload);
         }
     },
