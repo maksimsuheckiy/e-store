@@ -1,5 +1,7 @@
 # E-store project (webpack 5)
 
+Store Link - https://electronic-e-store.web.app/
+
 The following technologies were used in this project:
  - Auth0 
  - Firebase
@@ -7,7 +9,7 @@ The following technologies were used in this project:
  - TypeScript
  - Sass (modules)
  - React-router-dom (v6)
- - Redux
+ - Redux, redux-persist
 
 Enter the client folder and follow the command's advice:
 
