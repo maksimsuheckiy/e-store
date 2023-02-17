@@ -5,8 +5,6 @@ import styles from "./Profile.scss";
 const UserProfile = () => {
     const {user} = useAuth0();
 
-    console.log(user);
-
     return (
         <div className={styles['profile']}>
             <h1 className={styles['profile__title']}>User profile</h1>
