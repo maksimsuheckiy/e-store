@@ -47,7 +47,7 @@ const config: Configuration = {
                 ]
             },
             {
-                test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
+                test: /\.(png|jpg|gif|eot|ttf|woff)$/,
                 type: 'asset/resource'
             },
             {

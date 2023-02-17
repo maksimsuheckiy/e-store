@@ -1,5 +1,4 @@
 import path from "path";
-import Dotenv from "dotenv-webpack";
 import {Configuration as WebpackConfiguration, HotModuleReplacementPlugin} from "webpack";
 import {Configuration as WebpackDevServerConfiguration} from 'webpack-dev-server';
 import HtmlWebpackPlugin from "html-webpack-plugin";
@@ -72,10 +71,7 @@ const config: Configuration = {
         }),
         new ESLintPlugin({
             extensions: ["js", "jsx", "ts", "tsx"],
-        }),
-        new Dotenv({
-            systemvars: true,
-        }),
+        })
     ],
     devtool: "inline-source-map",
     devServer: {
