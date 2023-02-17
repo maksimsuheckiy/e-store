@@ -3,15 +3,24 @@ import {useAuth0} from "@auth0/auth0-react";
 import styles from "./Profile.scss";
 
 const UserProfile = () => {
-    const {user, isAuthenticated} = useAuth0();
+    const {user} = useAuth0();
 
     console.log(user);
 
     return (
-        isAuthenticated ?
-            <div className={styles['profile-wrap']}>
-                {JSON.stringify(user)}
-            </div> : null
+        <div className={styles['profile']}>
+            <h1 className={styles['profile__title']}>User profile</h1>
+            <div className={styles['user']}>
+                <div className={styles['user__photo-box']}>
+                    <img src={user?.picture} alt={user?.nickname} className={styles['user__photo']}/>
+                </div>
+                <h1 className={styles['user__name']}>Name: {user?.nickname}</h1>
+                <p className={styles['user__email']}>Email: <span className={styles['user__email--primary']}>{user?.email}</span></p>
+                {!user?.email_verified && (
+                    <p className={styles['user__email-verify']}>Your email is not verified! Please check your inbox.</p>
+                )}
+            </div>
+        </div>
     )
 }
 

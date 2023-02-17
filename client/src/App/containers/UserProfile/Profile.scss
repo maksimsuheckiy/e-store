@@ -1,3 +1,46 @@
-.profile-wrap {
-    text-align: right;
+.profile {
+    &__title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 1.5;
+        color: #000;
+        padding-bottom: 70px;
+    }
+}
+
+.user {
+    width: 100%;
+    max-width: 400px;
+    font-family: 'Poppins', sans-serif;
+    &__photo-box {
+        padding-bottom: 20px;
+    }
+
+    &__photo {
+        border-radius: 50%;
+    }
+
+    &__name {
+        font-size: 16px;
+        line-height: 1.25;
+        color: #000;
+        padding-bottom: 15px;
+    }
+
+    &__email {
+        font-size: 16px;
+        line-height: 1.25;
+        color: #000;
+        padding-bottom: 30px;
+        &--primary {
+            color: #0156FF;
+        }
+    }
+
+    &__email-verify {
+        font-size: 16px;
+        line-height: 1.25;
+        color: red;
+    }
 }
