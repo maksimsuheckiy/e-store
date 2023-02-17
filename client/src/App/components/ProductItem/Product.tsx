@@ -1,6 +1,6 @@
 import React from "react";
 import {Rating} from "react-simple-star-rating";
-import {utils} from "../../utils/utils";
+import {calcNewPrice} from "../../utils/utils";
 import {ProductItem} from "../../models/InitialDataTypes";
 import styles from "./Product.scss";
 import rootStyles from "../../assets/styles/main.scss";
@@ -16,7 +16,7 @@ const Product = (props: ProductItem) => {
         thumbnail
     } = props;
 
-    const oldPrice = utils(price, discountPercentage);
+    const oldPrice = calcNewPrice(price, discountPercentage);
 
     return (
         <div className={styles.product}>
